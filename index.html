@@ -81,6 +81,16 @@
       }
     }
 
+    @keyframes gentlePulse {
+      0%, 100% {
+        box-shadow: 0 30px 70px rgba(3, 16, 34, .38), 0 0 0 0 rgba(255, 255, 255, .24);
+      }
+
+      50% {
+        box-shadow: 0 30px 70px rgba(3, 16, 34, .38), 0 0 0 12px rgba(255, 255, 255, 0);
+      }
+    }
+
     .hero {
       position: relative;
       min-height: 88vh;
@@ -147,6 +157,13 @@
       font-weight: 700;
       background: rgba(255, 255, 255, .12);
       backdrop-filter: blur(10px);
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .nav a:hover,
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(3, 16, 34, .18);
     }
 
     .hero-content {
@@ -204,6 +221,7 @@
       border-radius: 50%;
       border: 7px solid rgba(255, 255, 255, .88);
       box-shadow: 0 30px 70px rgba(3, 16, 34, .38);
+      animation: gentlePulse 4.8s ease-in-out 1.2s infinite;
       transition: transform .45s ease, box-shadow .45s ease;
     }
 
@@ -253,6 +271,12 @@
       border-color: #ffffff;
     }
 
+    .button.download {
+      background: rgba(189, 238, 241, .18);
+      border-color: rgba(189, 238, 241, .72);
+      color: #ffffff;
+    }
+
     main {
       margin-top: -38px;
       position: relative;
@@ -291,6 +315,17 @@
     .panel {
       padding: 28px;
       animation: fadeUp .7s ease-out both;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -552,7 +587,8 @@
       }
 
       .hero-photo-wrap {
-        justify-self: start;
+        order: -1;
+        justify-self: center;
         width: min(270px, 72vw);
       }
 
@@ -573,23 +609,29 @@
       }
 
       .topbar {
-        inset: 18px 18px auto;
-        left: 50%;
-        width: calc(100% - 36px);
-      }
-
-      .nav a {
-        min-height: 38px;
-        padding: 8px 10px;
-        font-size: 13px;
+        display: none;
       }
 
       .hero-content {
-        padding-top: 150px;
+        padding-top: 0;
+        text-align: center;
       }
 
       .hero-photo-wrap {
-        width: min(220px, 66vw);
+        width: min(188px, 56vw);
+      }
+
+      .hero-photo-wrap::before {
+        inset: -12px;
+      }
+
+      .hero-photo-wrap::after {
+        inset: 16px -12px -12px 12px;
+      }
+
+      .lead {
+        font-size: 18px;
+        line-height: 1.55;
       }
 
       section {
@@ -625,6 +667,11 @@
         scroll-behavior: auto !important;
         transition-duration: .001ms !important;
       }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -648,6 +695,7 @@
           <div class="hero-actions">
             <a class="button primary" href="mailto:fernandapardod@gmail.com">Escribir email</a>
             <a class="button" href="https://www.linkedin.com/in/fernandapardod" target="_blank" rel="noreferrer">Ver LinkedIn</a>
+            <a class="button download" href="CV_Fernanda_Pardo.docx" download>Descargar CV</a>
           </div>
         </div>
         <div class="hero-photo-wrap" aria-label="Foto de Fernanda Pardo Durán">
@@ -657,7 +705,7 @@
     </header>
 
     <main>
-      <section class="intro" id="sobre-mi">
+      <section class="intro reveal" id="sobre-mi">
         <div class="section-inner intro-grid">
           <article class="panel">
             <h2>Mirada de negocio para equipos de producto</h2>
@@ -694,7 +742,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="reveal">
         <div class="section-inner">
           <div class="section-head">
             <h2>Foco profesional</h2>
@@ -709,7 +757,7 @@
         </div>
       </section>
 
-      <section id="experiencia">
+      <section class="reveal" id="experiencia">
         <div class="section-inner">
           <div class="section-head">
             <h2>Experiencia destacada</h2>
@@ -744,7 +792,7 @@
         </div>
       </section>
 
-      <section id="herramientas">
+      <section class="reveal" id="herramientas">
         <div class="section-inner">
           <div class="section-head">
             <h2>Herramientas y tecnologías</h2>
@@ -763,7 +811,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="reveal">
         <div class="section-inner">
           <div class="section-head">
             <h2>Formación</h2>
@@ -786,7 +834,7 @@
         </div>
       </section>
 
-      <section class="contact" id="contacto">
+      <section class="contact reveal" id="contacto">
         <div class="section-inner contact-row">
           <div>
             <h2>Conversemos</h2>
@@ -795,6 +843,7 @@
           <div class="contact-actions">
             <a class="button primary" href="mailto:fernandapardod@gmail.com">fernandapardod@gmail.com</a>
             <a class="button" href="https://www.linkedin.com/in/fernandapardod" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button download" href="CV_Fernanda_Pardo.docx" download>Descargar CV</a>
           </div>
         </div>
       </section>
@@ -804,5 +853,23 @@
       Fernanda Pardo Durán - Product Owner Jr. en formación
     </footer>
   </div>
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
 </body>
 </html>
