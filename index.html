@@ -217,7 +217,7 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 20%;
       border-radius: 50%;
       border: 7px solid rgba(255, 255, 255, .88);
       box-shadow: 0 30px 70px rgba(3, 16, 34, .38);
@@ -467,6 +467,106 @@
       margin-top: 8px;
     }
 
+    .projects-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #b7d8dd;
+      box-shadow: 0 18px 40px rgba(23, 32, 51, .12);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-eyebrow {
+      margin: 0 0 6px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .project-body p.muted {
+      margin-top: 10px;
+    }
+
+    .project-more {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .project-more summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--blue);
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-more summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-more summary::after {
+      content: "+";
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .project-more[open] summary::after {
+      content: "\2212";
+    }
+
+    .project-more[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .project-detail {
+      margin: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .project-detail dt {
+      font-weight: 800;
+      color: var(--navy);
+      margin-top: 12px;
+    }
+
+    .project-detail dt:first-child {
+      margin-top: 0;
+    }
+
+    .project-detail dd {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
     .tools {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -574,8 +674,13 @@
       .intro-grid,
       .hero-layout,
       .role,
+      .project-card,
       .education-list {
         grid-template-columns: 1fr;
+      }
+
+      .project-card img {
+        min-height: 200px;
       }
 
       .hero-layout {
@@ -681,6 +786,7 @@
       <div class="topbar" aria-label="Navegacion principal">
         <a class="brand" href="#">Fernanda Pardo Durán</a>
         <nav class="nav">
+          <a href="#proyectos">Proyectos</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#herramientas">Herramientas</a>
           <a href="#contacto">Contacto</a>
@@ -693,7 +799,7 @@
           <h1>Fernanda Pardo Durán</h1>
           <p class="lead">Ingeniera Civil Industrial con experiencia liderando transformación de negocio, mejora de procesos y gestión de socios estratégicos en la industria aseguradora.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:fernandapardod@gmail.com">Escribir email</a>
+            <a class="button primary" href="mailto:fernandapardod@gmail.com">Contáctame</a>
             <a class="button" href="https://www.linkedin.com/in/fernandapardod" target="_blank" rel="noreferrer">Ver LinkedIn</a>
             <a class="button download" href="CV_Fernanda_Pardo.docx" download>Descargar CV</a>
           </div>
@@ -757,6 +863,76 @@
         </div>
       </section>
 
+      <section class="reveal" id="proyectos">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Proyectos relevantes</h2>
+            <p class="muted">Casos de estudio aplicados en marcos ágiles, Design Thinking y gestión de producto.</p>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <img src="project-jira-scrum.jpg" alt="Proyecto de implementación ágil con Scrum, Kanban y Jira">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto destacado</p>
+                <h3>Implementación Ágil con Scrum, Kanban y Jira (Proyecto 5)</h3>
+                <p class="muted">Estructuración y gestión de un roadmap de producto de 8 meses (con fases de diagnóstico, desarrollo y despliegue), integrando marcos ágiles y redactando Historias de Usuario detalladas.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Desafío principal</dt>
+                    <dd>Asegurar la alineación entre el desarrollo iterativo y la operación continua, además de gestionar los cuellos de botella y las lecciones aprendidas tras no lograr completar historias de usuario (como el caso de la HU-04) de acuerdo con los criterios de la Definition of Done.</dd>
+                    <dt>Solución propuesta</dt>
+                    <dd>Implementar Scrum para gestionar las fases de desarrollo iterativo y aplicar Kanban para la operación continua, aprovechando su flujo óptimo comprobado en ejercicios de simulación previos.</dd>
+                    <dt>Herramienta técnica utilizada</dt>
+                    <dd>Jira Cloud.</dd>
+                    <dt>Principales aprendizajes alcanzados</dt>
+                    <dd>La importancia crítica del apego a la Definition of Done para asegurar la entrega real de valor y cómo el uso de tableros combinados ayuda a transparentar la capacidad del equipo.</dd>
+                    <dt>Métricas de impacto logradas</dt>
+                    <dd>Visualización y control del ciclo de vida del trabajo (Lead/Cycle Time) y mejora en la eficiencia del flujo mediante el análisis del Diagrama de Flujo Acumulativo (CFD).</dd>
+                    <dt>Habilidades técnicas aplicadas</dt>
+                    <dd>Configuración de backlogs en Jira Cloud, análisis de métricas y reportes ágiles, y estructuración técnica de User Stories.</dd>
+                    <dt>Justificación de elección para el portafolio</dt>
+                    <dd>Este proyecto demuestra de forma práctica la capacidad de adaptación para resolver bloqueos reales combinando marcos de trabajo (Scrum y Kanban), sumado al dominio técnico indispensable de herramientas líderes en la industria.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="project-agile-inception.jpg" alt="Proyecto de alineación estratégica con Agile Inception">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto</p>
+                <h3>Alineación Estratégica con Agile Inception</h3>
+                <p class="muted">Diseño de un caso de estudio integral para el desarrollo de una plataforma EdTech orientada a estudiantes secundarios. El trabajo abarcó la creación de un Agile Inception Deck completo de 10 componentes para definir el propósito, identificar stakeholders, acotar el alcance y establecer el MVP. Se sumó el diseño de una agenda de sesión de alineación de medio día dividida en fases de apertura, exploración, construcción y cierre.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Herramientas y metodologías usadas</dt>
+                    <dd>Marco de Agile Inception (integrando conceptos de Lean Inception y Sprint 0) y aplicación de técnicas de facilitación dinámica para la toma de decisiones, tales como Timeboxing y Dot voting.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="project-design-thinking.jpg" alt="Proyecto de resolución de problemas con Design Thinking">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto</p>
+                <h3>Resolución de Problemas con Design Thinking (Proyecto 4)</h3>
+                <p class="muted">Aplicación práctica de las diferentes fases metodológicas para el desarrollo estratégico de un portafolio de productos. El foco estuvo en empatizar con las necesidades, definir el problema central y estructurar soluciones viables siguiendo los lineamientos y consignas del repositorio base.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Herramientas y metodologías usadas</dt>
+                    <dd>Metodología Design Thinking (abarcando las fases completas de la disciplina) y herramientas prácticas de ideación centradas en el usuario.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="reveal" id="experiencia">
         <div class="section-inner">
           <div class="section-head">
@@ -764,6 +940,14 @@
             <p class="muted">Trayectoria en BNP Paribas Cardif Chile, con responsabilidades en transformación, seguimiento de negocio e implementación de productos.</p>
           </div>
           <div class="timeline">
+            <article class="role">
+              <div class="years">2026 - actualidad</div>
+              <div>
+                <h3>Jefe de Proyectos SAC y Transformación Digital</h3>
+                <strong>Cencosud</strong>
+                <p>Liderar proyectos de transformación digital en Servicio al Cliente, desde el levantamiento de necesidades hasta su implementación y medición de resultados.</p>
+              </div>
+            </article>
             <article class="role">
               <div class="years">2023 - 2024</div>
               <div>
@@ -778,14 +962,6 @@
                 <h3>Jefa de Equipo - Seguimiento de Negocio</h3>
                 <strong>BNP Paribas Cardif Chile</strong>
                 <p>Coordinación con Banco Itaú, Banco Santander y Banco de Chile; reportes ejecutivos de ventas, siniestros y recaudación.</p>
-              </div>
-            </article>
-            <article class="role">
-              <div class="years">2018 - 2021</div>
-              <div>
-                <h3>Ingeniera de Implementación de Nuevos Negocios</h3>
-                <strong>BNP Paribas Cardif Chile</strong>
-                <p>Implementación end-to-end de productos de seguros y estabilización operativa de la alianza estratégica Scotiabank-Cencosud.</p>
               </div>
             </article>
           </div>
