@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portafolio profesional de Fernanda Pardo Durán, Ingeniera Civil Industrial orientada a Product Ownership, transformación digital y mejora de procesos.">
+  <title>Fernanda Pardo Durán | Product Owner Jr.</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #596276;
+      --line: #dbe2ee;
+      --surface: #ffffff;
+      --soft: #f3f7fb;
+      --navy: #16345c;
+      --blue: #2563a8;
+      --teal: #168f98;
+      --coral: #d85c4a;
+      --gold: #b5862f;
+      --shadow: 0 18px 50px rgba(23, 32, 51, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes softFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes drawRing {
+      from {
+        transform: rotate(-16deg) scale(.96);
+        opacity: .35;
+      }
+
+      to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% {
+        box-shadow: 0 30px 70px rgba(3, 16, 34, .38), 0 0 0 0 rgba(255, 255, 255, .24);
+      }
+
+      50% {
+        box-shadow: 0 30px 70px rgba(3, 16, 34, .38), 0 0 0 12px rgba(255, 255, 255, 0);
+      }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 32px 24px 72px;
+      color: #ffffff;
+      background:
+        linear-gradient(115deg, rgba(18, 39, 68, .98), rgba(28, 88, 130, .9) 58%, rgba(17, 143, 152, .86)),
+        linear-gradient(180deg, #16345c, #168f98);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 140px;
+      background: linear-gradient(180deg, rgba(243, 247, 251, 0), var(--soft));
+      pointer-events: none;
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: absolute;
+      inset: 24px 24px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      width: calc(100% - 48px);
+      max-width: 1120px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .12);
+      backdrop-filter: blur(10px);
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .nav a:hover,
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(3, 16, 34, .18);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(720px, 100%);
+      padding-top: 72px;
+      animation: fadeUp .78s ease-out both;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .72fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      justify-self: center;
+      width: min(360px, 78vw);
+      aspect-ratio: 1;
+      animation: fadeUp .78s ease-out .14s both, softFloat 7s ease-in-out 1.1s infinite;
+    }
+
+    .hero-photo-wrap::before,
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-photo-wrap::before {
+      inset: -18px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      animation: drawRing .9s ease-out .35s both;
+    }
+
+    .hero-photo-wrap::after {
+      inset: 18px -24px -18px 24px;
+      background: rgba(255, 255, 255, .11);
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 50%;
+      border: 7px solid rgba(255, 255, 255, .88);
+      box-shadow: 0 30px 70px rgba(3, 16, 34, .38);
+      animation: gentlePulse 4.8s ease-in-out 1.2s infinite;
+      transition: transform .45s ease, box-shadow .45s ease;
+    }
+
+    .hero-photo-wrap:hover .hero-photo {
+      transform: scale(1.025);
+      box-shadow: 0 34px 78px rgba(3, 16, 34, .46);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-weight: 800;
+      color: #bdeef1;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 640px;
+      font-size: clamp(18px, 2.4vw, 24px);
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      animation: fadeUp .72s ease-out .22s both;
+    }
+
+    .button {
+      border-color: rgba(255, 255, 255, .7);
+    }
+
+    .button.primary {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: #ffffff;
+    }
+
+    .button.download {
+      background: rgba(189, 238, 241, .18);
+      border-color: rgba(189, 238, 241, .72);
+      color: #ffffff;
+    }
+
+    main {
+      margin-top: -38px;
+      position: relative;
+      z-index: 3;
+    }
+
+    section {
+      padding: 58px 24px;
+    }
+
+    section:nth-child(even) {
+      background: #ffffff;
+    }
+
+    .intro {
+      background: transparent;
+      padding-top: 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel,
+    .role,
+    .education-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 28px;
+      animation: fadeUp .7s ease-out both;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 0;
+      color: var(--navy);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      border-left: 4px solid var(--teal);
+      background: #eef8f8;
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: var(--navy);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 750;
+      font-size: 14px;
+      background: #e8eef7;
+      color: var(--navy);
+      border: 1px solid #ccd8eb;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      border-color: var(--teal);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .focus {
+      min-height: 136px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+    }
+
+    .focus:hover {
+      transform: translateY(-4px);
+      border-color: #b7d8dd;
+      box-shadow: 0 14px 34px rgba(23, 32, 51, .1);
+    }
+
+    .focus b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      max-width: 520px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      box-shadow: none;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+
+    .role:hover {
+      transform: translateY(-3px);
+      border-color: #b7d8dd;
+      box-shadow: 0 14px 34px rgba(23, 32, 51, .09);
+    }
+
+    .years {
+      color: var(--blue);
+      font-weight: 850;
+    }
+
+    .role p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #b7d8dd;
+      box-shadow: 0 18px 40px rgba(23, 32, 51, .12);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-eyebrow {
+      margin: 0 0 6px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .project-body p.muted {
+      margin-top: 10px;
+    }
+
+    .project-more {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .project-more summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--blue);
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-more summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-more summary::after {
+      content: "+";
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .project-more[open] summary::after {
+      content: "\2212";
+    }
+
+    .project-more[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .project-detail {
+      margin: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .project-detail dt {
+      font-weight: 800;
+      color: var(--navy);
+      margin-top: 12px;
+    }
+
+    .project-detail dt:first-child {
+      margin-top: 0;
+    }
+
+    .project-detail dd {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tool {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--navy);
+      font-weight: 800;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .tool:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(23, 32, 51, .09);
+    }
+
+    .tool:nth-child(3n + 1) {
+      border-top: 4px solid var(--blue);
+    }
+
+    .tool:nth-child(3n + 2) {
+      border-top: 4px solid var(--teal);
+    }
+
+    .tool:nth-child(3n) {
+      border-top: 4px solid var(--coral);
+    }
+
+    .education-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .education-item {
+      min-height: 152px;
+      padding: 22px;
+      box-shadow: none;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+
+    .education-item:hover {
+      transform: translateY(-3px);
+      border-color: #b7d8dd;
+      box-shadow: 0 14px 34px rgba(23, 32, 51, .09);
+    }
+
+    .education-item span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .contact h2 {
+      color: #ffffff;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 24px;
+      background: #102642;
+      color: rgba(255, 255, 255, .72);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .intro-grid,
+      .hero-layout,
+      .role,
+      .project-card,
+      .education-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-layout {
+        gap: 38px;
+      }
+
+      .hero-content {
+        width: 100%;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+        justify-self: center;
+        width: min(270px, 72vw);
+      }
+
+      .focus-grid,
+      .tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 92vh;
+        padding: 24px 18px 64px;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero-content {
+        padding-top: 0;
+        text-align: center;
+      }
+
+      .hero-photo-wrap {
+        width: min(188px, 56vw);
+      }
+
+      .hero-photo-wrap::before {
+        inset: -12px;
+      }
+
+      .hero-photo-wrap::after {
+        inset: 16px -12px -12px 12px;
+      }
+
+      .lead {
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      section {
+        padding: 46px 18px;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .stats,
+      .focus-grid,
+      .tools {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        width: 100%;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="topbar" aria-label="Navegacion principal">
+        <a class="brand" href="#">Fernanda Pardo Durán</a>
+        <nav class="nav">
+          <a href="#proyectos">Proyectos</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#herramientas">Herramientas</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="hero-inner hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow">Product Owner Jr. en formación</p>
+          <h1>Fernanda Pardo Durán</h1>
+          <p class="lead">Ingeniera Civil Industrial con experiencia liderando transformación de negocio, mejora de procesos y gestión de socios estratégicos en la industria aseguradora.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:fernandapardod@gmail.com">Contáctame</a>
+            <a class="button" href="https://www.linkedin.com/in/fernandapardod" target="_blank" rel="noreferrer">Ver LinkedIn</a>
+            <a class="button download" href="CV_Fernanda_Pardo.docx" download>Descargar CV</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap" aria-label="Foto de Fernanda Pardo Durán">
+          <img class="hero-photo" src="foto.jpg" alt="Fernanda Pardo Durán">
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro reveal" id="sobre-mi">
+        <div class="section-inner intro-grid">
+          <article class="panel">
+            <h2>Mirada de negocio para equipos de producto</h2>
+            <p class="muted">Con más de 6 años de experiencia coordinando proyectos transversales entre negocio, operaciones y tecnología, Fernanda conecta requerimientos, datos, procesos y equipos para llevar iniciativas desde el levantamiento hasta la puesta en producción.</p>
+            <div class="chips" aria-label="Especialidades">
+              <span class="chip">Lean Startup</span>
+              <span class="chip">Design Thinking</span>
+              <span class="chip">Scrum</span>
+              <span class="chip">KPIs</span>
+              <span class="chip">Procesos</span>
+            </div>
+          </article>
+
+          <aside class="panel">
+            <div class="stats">
+              <div class="stat">
+                <strong>6+</strong>
+                <span>años de experiencia</span>
+              </div>
+              <div class="stat">
+                <strong>2026</strong>
+                <span>Product Owner en curso</span>
+              </div>
+              <div class="stat">
+                <strong>Banca</strong>
+                <span>socios estratégicos</span>
+              </div>
+              <div class="stat">
+                <strong>Agile</strong>
+                <span>transformación digital</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Foco profesional</h2>
+            <p class="muted">Busca dar el salto hacia roles junior en tecnología y Product Ownership, aportando experiencia real en procesos, KPIs, stakeholders y ejecución.</p>
+          </div>
+          <div class="focus-grid">
+            <div class="focus"><b>Análisis</b><span class="muted">Seguimiento de KPIs, reportes ejecutivos y lectura de procesos.</span></div>
+            <div class="focus"><b>Stakeholders</b><span class="muted">Coordinación con bancos, socios y equipos internos.</span></div>
+            <div class="focus"><b>Transformación</b><span class="muted">Digitalización, mejora continua y gestión del cambio.</span></div>
+            <div class="focus"><b>Equipos</b><span class="muted">Trabajo con areas de negocio, operaciones y tecnologia.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="proyectos">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Proyectos relevantes</h2>
+            <p class="muted">Casos de estudio aplicados en marcos ágiles, Design Thinking y gestión de producto.</p>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <img src="project-jira-scrum.jpg" alt="Proyecto de implementación ágil con Scrum, Kanban y Jira">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto destacado</p>
+                <h3>Implementación Ágil con Scrum, Kanban y Jira (Proyecto 5)</h3>
+                <p class="muted">Estructuración y gestión de un roadmap de producto de 8 meses (con fases de diagnóstico, desarrollo y despliegue), integrando marcos ágiles y redactando Historias de Usuario detalladas.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Desafío principal</dt>
+                    <dd>Asegurar la alineación entre el desarrollo iterativo y la operación continua, además de gestionar los cuellos de botella y las lecciones aprendidas tras no lograr completar historias de usuario (como el caso de la HU-04) de acuerdo con los criterios de la Definition of Done.</dd>
+                    <dt>Solución propuesta</dt>
+                    <dd>Implementar Scrum para gestionar las fases de desarrollo iterativo y aplicar Kanban para la operación continua, aprovechando su flujo óptimo comprobado en ejercicios de simulación previos.</dd>
+                    <dt>Herramienta técnica utilizada</dt>
+                    <dd>Jira Cloud.</dd>
+                    <dt>Principales aprendizajes alcanzados</dt>
+                    <dd>La importancia crítica del apego a la Definition of Done para asegurar la entrega real de valor y cómo el uso de tableros combinados ayuda a transparentar la capacidad del equipo.</dd>
+                    <dt>Métricas de impacto logradas</dt>
+                    <dd>Visualización y control del ciclo de vida del trabajo (Lead/Cycle Time) y mejora en la eficiencia del flujo mediante el análisis del Diagrama de Flujo Acumulativo (CFD).</dd>
+                    <dt>Habilidades técnicas aplicadas</dt>
+                    <dd>Configuración de backlogs en Jira Cloud, análisis de métricas y reportes ágiles, y estructuración técnica de User Stories.</dd>
+                    <dt>Justificación de elección para el portafolio</dt>
+                    <dd>Este proyecto demuestra de forma práctica la capacidad de adaptación para resolver bloqueos reales combinando marcos de trabajo (Scrum y Kanban), sumado al dominio técnico indispensable de herramientas líderes en la industria.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="project-agile-inception.jpg" alt="Proyecto de alineación estratégica con Agile Inception">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto</p>
+                <h3>Alineación Estratégica con Agile Inception</h3>
+                <p class="muted">Diseño de un caso de estudio integral para el desarrollo de una plataforma EdTech orientada a estudiantes secundarios. El trabajo abarcó la creación de un Agile Inception Deck completo de 10 componentes para definir el propósito, identificar stakeholders, acotar el alcance y establecer el MVP. Se sumó el diseño de una agenda de sesión de alineación de medio día dividida en fases de apertura, exploración, construcción y cierre.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Herramientas y metodologías usadas</dt>
+                    <dd>Marco de Agile Inception (integrando conceptos de Lean Inception y Sprint 0) y aplicación de técnicas de facilitación dinámica para la toma de decisiones, tales como Timeboxing y Dot voting.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="project-design-thinking.jpg" alt="Proyecto de resolución de problemas con Design Thinking">
+              <div class="project-body">
+                <p class="project-eyebrow">Proyecto</p>
+                <h3>Resolución de Problemas con Design Thinking (Proyecto 4)</h3>
+                <p class="muted">Aplicación práctica de las diferentes fases metodológicas para el desarrollo estratégico de un portafolio de productos. El foco estuvo en empatizar con las necesidades, definir el problema central y estructurar soluciones viables siguiendo los lineamientos y consignas del repositorio base.</p>
+                <details class="project-more">
+                  <summary>Ver detalle del proyecto</summary>
+                  <dl class="project-detail">
+                    <dt>Herramientas y metodologías usadas</dt>
+                    <dd>Metodología Design Thinking (abarcando las fases completas de la disciplina) y herramientas prácticas de ideación centradas en el usuario.</dd>
+                  </dl>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="experiencia">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Experiencia destacada</h2>
+            <p class="muted">Trayectoria en BNP Paribas Cardif Chile, con responsabilidades en transformación, seguimiento de negocio e implementación de productos.</p>
+          </div>
+          <div class="timeline">
+            <article class="role">
+              <div class="years">2026 - actualidad</div>
+              <div>
+                <h3>Jefe de Proyectos SAC y Transformación Digital</h3>
+                <strong>Cencosud</strong>
+                <p>Liderar proyectos de transformación digital en Servicio al Cliente, desde el levantamiento de necesidades hasta su implementación y medición de resultados.</p>
+              </div>
+            </article>
+            <article class="role">
+              <div class="years">2023 - 2024</div>
+              <div>
+                <h3>Líder de Transformación y Procesos</h3>
+                <strong>BNP Paribas Cardif Chile</strong>
+                <p>Digitalización de venta y postventa, resolución de incidencias en plataformas digitales, levantamiento de requerimientos y wireframes para un nuevo producto financiero.</p>
+              </div>
+            </article>
+            <article class="role">
+              <div class="years">2022 - 2023</div>
+              <div>
+                <h3>Jefa de Equipo - Seguimiento de Negocio</h3>
+                <strong>BNP Paribas Cardif Chile</strong>
+                <p>Coordinación con Banco Itaú, Banco Santander y Banco de Chile; reportes ejecutivos de ventas, siniestros y recaudación.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="herramientas">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Herramientas y tecnologías</h2>
+            <p class="muted">Stack orientado a análisis, procesos, gestión de producto y trabajo con equipos multidisciplinarios.</p>
+          </div>
+          <div class="tools">
+            <div class="tool">Python</div>
+            <div class="tool">SQL</div>
+            <div class="tool">Power BI</div>
+            <div class="tool">Scrum / Agile</div>
+            <div class="tool">Microsoft Office</div>
+            <div class="tool">MS Project</div>
+            <div class="tool">Bizagi BPM</div>
+            <div class="tool">Visual Paradigm</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Formación</h2>
+            <p class="muted">Base industrial y especialización reciente en habilidades digitales, agilidad y producto.</p>
+          </div>
+          <div class="education-list">
+            <article class="education-item">
+              <h3>Ingeniería Civil Industrial</h3>
+              <span>Pontificia Universidad Católica de Valparaíso, 2017</span>
+            </article>
+            <article class="education-item">
+              <h3>Forward Program</h3>
+              <span>McKinsey.org, 2026</span>
+            </article>
+            <article class="education-item">
+              <h3>Product Owner</h3>
+              <span>Instituto ISEG / Talento Digital SENCE, en curso hasta 09/2026</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact reveal" id="contacto">
+        <div class="section-inner contact-row">
+          <div>
+            <h2>Conversemos</h2>
+            <p>Abierta a oportunidades junior en tecnología, producto y transformación digital.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:fernandapardod@gmail.com">fernandapardod@gmail.com</a>
+            <a class="button" href="https://www.linkedin.com/in/fernandapardod" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button download" href="CV_Fernanda_Pardo.docx" download>Descargar CV</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Fernanda Pardo Durán - Product Owner Jr. en formación
+    </footer>
+  </div>
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
